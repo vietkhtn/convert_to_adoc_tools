@@ -1,0 +1,316 @@
+= PayBox : BIÊN BẢN NGHIỆM THU PHẦN MỀM (KLB+)
+:stem:
+
+[[page]]
+
+[[main]]
+
+[[main-header]]
+
+[[breadcrumb-section]]
+
+[[breadcrumbs]]
+. link:index.html[PayBox]
+. link:PayBox-Home_1682964645.html[PayBox Home]
+. link:1735131239.html[QA/QC]
+
+[[title-heading]]
+== PayBox : BIÊN BẢN NGHIỆM THU PHẦN MỀM (KLB+) 
+
+[[content]]
+
+ Created by Nguyễn Thanh Hằng on Jan 17, 2023 
+
+[[main-content]]
+
+image::attachments/1766260832/1764786509?width=204["",204]
+
+*CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM*
+
+Độc lập - Tự do - Hạnh phúc
+
+[[BIÊNBẢNNGHIỆMTHUPHẦNMỀM(KLB+)-BIÊNBẢNNGHIỆMTHUPHẦNMỀM]]
+== *BIÊN BẢN NGHIỆM THU PHẦN MỀM*
+
+[[BIÊNBẢNNGHIỆMTHUPHẦNMỀM(KLB+)-TÊNPHẦNMỀM:PAYBOX]]
+=== *TÊN PHẦN MỀM:* PAYBOX
+
+[[BIÊNBẢNNGHIỆMTHUPHẦNMỀM(KLB+)-1.Thờigian,địađiểmtiếnhành:]]
+==== *1. Thời gian, địa điểm tiến hành:*
+
+* 
+
+Thời gian: *Từ ngày 16/01/2023 - …/01/2023*
+
+* 
+
+Địa điểm: Unicloud HCM
+
+[[BIÊNBẢNNGHIỆMTHUPHẦNMỀM(KLB+)-2.Nguồnlực]]
+==== *2. Nguồn lực*
+
+*a. Nhân lực*
+
+|===
+| *PO* | *PM* | *UI* | *BE* | *BA* | *Tester* | *Firm ware*
+
+a| 
+* Trần Thanh Lộc
+
+a| 
+* Hà Gia Phước
+
+a| 
+* Đỗ Mạnh Cường
+
+a| 
+* Nguyễn Trung Tín
+
+a| 
+* Nguyễn Huỳnh Mỹ Huyền
+
+a| 
+* Nguyễn Thanh Hằng
+
+a| 
+* Trần Quốc Trung
+
+|===
+
+*b. Tài nguyên*
+* Nghiệp vụ: https://unicloudgroup.atlassian.net/wiki/spaces/PB/pages/1689288765/A.+Nh+m+ch+c+n+ng+Paybox+Display[Tài liệu nghiệp vụ Paybox]
+* Figma UI/UX:
+
+[[ap-app.figma.confluence.lite__figma-for-confluence-lite4551851753157630021]]
+
+[[embedded-app.figma.confluence.lite__figma-for-confluence-lite4551851753157630021]]
+
+[[BIÊNBẢNNGHIỆMTHUPHẦNMỀM(KLB+)-3.Nộidungkiểmtra:]]
+==== *3. Nội dung kiểm tra:*
+
+* *Phạm vi:* Kiểm tra tính năng của thiết bị Paybox khi liên kết với được phát triển trong giai đoạn release này (danh sách được liệt kê trong bảng dưới)
+* *Đối tượng kiểm tra*
+** *Sản phẩm cuối:*
+*** Paybox
+* *Môi trường:*
+** *Web Portal:* UAT
+** *MyShop (Umee):* UAT
+** *Paybox:* UATfirmware version 1.0.0
+
+[[BIÊNBẢNNGHIỆMTHUPHẦNMỀM(KLB+)-4.Kếtquảkiểmtra:]]
+==== *4. Kết quả kiểm tra:*
+
+[[BIÊNBẢNNGHIỆMTHUPHẦNMỀM(KLB+)-A.Paybox]]
+===== A. Paybox
+
+|===
+| *STT* | *Function* | *Acceptance criteria* | *Kết quả* | *Ghi chú*
+
+5+| *Tính năng cơ bản*
+| 1 | Thông tin thiết bị a| 
+* Giới thiệu đầy đủ thông tin theo thứ tự từ trên xuống:
+** Thông tin thiết bị bao gồm: Tên thiết bị, Dòng máy, Hardware ID, Phiên bản, Địa chỉ IP
+** Giới thiệu
+** Tình trạng pin: Hiển thị đúng
+* Xuất hiện gợi ý cập nhật phiên bản mới nếu có
+
+| |
+| 2 | Giao diện | Đổi được 2 giao diện Light/Dark | |
+| 3 | Âm Lượng a| 
+* Mặc định 50%
+* Min-max: 1-10 đơn vị
+* Step: 1 đơn vị
+* Có âm báo khi tăng/giảm âm lượng
+
+| |
+| 4 | Âm báo a| 
+* Cài đặt âm báo:
+** Bật Âm báo và Đọc số tiền
+** Tắt Âm báo và tắt Đọc số tiền
+** Chỉ bật âm báo
+** Chỉ bật Đọc số tiền
+* Âm báo đọc số tiền đồng bộ ngôn ngữ anh/việt
+
+| |
+| 5 | Ngôn ngữ (Việt/English) a| 
+* Chuyển được ngôn ngữ hiển thị trên paybox: Việt/English
+* Tất cả các ngôn ngữ phải đồng bộ với cài đặt
+
+| |
+| 6 | Wifi a| 
+* Kết nối wifi thành công qua 2 phương thức:
+** Thông qua mã QR
+** Kết nối thủ công
+* Tự động tắt wifi khi đang ở chế độ chờ kết nối
+* Tự động khôi phục wifi khi:
+** Kết nối wifi mới không thành công
+** Bị mất wifi và wifi có lại
+
+| |
+5+| *Liên kết*
+| 7 | Liên kết Paybox với WebPortal a| 
+* Liên kết web portal thành công qua 2 phương thức
+** Thông qua mã QR
+** Thông qua shortlink
+* Hủy tính năng liên kết của QR|short-link cũ sau khi đã liên kết thành công
+* Refresh QR và short-link mỗi lần chọn liên kết Portal
+* Hiển thị MH liên kết web portal sau khi kết nối wifi thành công
+* Liên kết web portal thành công -\> Hiển thị MH đã liên kết trên paybox
+* Hủy liên kết từ portal thành công -\> Hiển thị MH chưa liên kết trên paybox
+* Hủy liên kết bằng cách kết nối lại với web portal khác -\> Hiển thị MH chưa liên kết trên paybox
+* Click Trang chủ Có 3 trường hợp:
+** Chưa liên kết với trang quản trị -\> MH chưa liên kết trang quản trị
+** Đã liên kết với trang quản trị nhưng chưa tạo mã QR -\> MH liên kết trang quản trị thành công
+** Đã tạo mã QR -\> hiển thị mã QR đã tạo
+
+| |
+| 8 | Liên kết Paybox với MyShop a| 
+* Liên kết shop thành công
+* Một shop liên kết được với nhiều Paybox
+
+| |
+| 9 | Umee a| 
+* Khách hàng có thể liên kết với tài khoản thanh toán
+* Có OTP từ bank để xác thực
+
+| |
+5+| *Giao dịch*
+| 10 | Lịch sử giao dịch KiotViet .2+a| 
+* Hiển thị chính xác lịch sử giao dịch bao gồm: Tài khoản, ngày giao dịch, số tiền
+* Hiển thị phân trang khi \> 5 giao dịch
+* Lịch sử giao dịch hiển thị theo thời gian sớm nhất
+
+| |
+| 11 | Lịch sử giao dịch Myshop | | Chưa thực hiện được thanh toán do lỗi Umee
+5+| *Khôi phục cài đặt gốc*
+| 12 | Khôi phục cài đặt gốc a| 
+* Xoá mọi dữ liệu trên thiết bị paybox
+* Trả về trạng thái default
+** Tiếng việt
+** Giao diện tối
+** Âm lượng: 5
+** Âm báo: Bật Âm báo và Đọc số tiền
+
+| | Chưa xóa được liên kết với Umee app
+5+| *Cập nhật phần mềm*
+| 13 | Cập nhật phần mềm | Cập nhật thành công | |
+
+|===
+
+*B. Web Portal*
+
+|===
+| *STT* | *Function* | *Acceptance criteria* | *Kết quả* | *Ghi chú*
+
+| 1 | *Đăng nhập* a| Đăng nhập UnicloudID trên Portal thành công +
+Có OTP cho mỗi lần đăng nhập
+| |
+| 2 | *Đăng ký* | Đăng ký tài khoản thành công | |
+| 3 | *Đăng xuất* | Đăng xuất thành công | |
+| 4 | *Quên mật khẩu* | Đổi mật khẩu thành công | |
+5+| *Liên kết paybox*
+| 5 | *Liên kết Paybox bằng QR* | Liên kết với QR thành công | |
+| 6 | *Liên kết Paybox qua short link* | Liên kết với shortlink thành công | |
+5+| *Thiết lập thiết bị*
+| 7 | *Xem danh sách thiết bị* a| 
+* Hiển thị các thiết bị đã được kết nối với tài khoản:
+** Tình trạng kết nối: Online/Offline
+* Đổi tên paybox
+
+| |
+| 8 | *Thông tin chi tiết thiết bị* | Thông tin thiết bị hiển thị bao gồm: Tên thiết bị, Dòng máy, Hardware ID, Phiên bản | |
+| 9 | *Hủy liên kết thiết bị* a| 
+* Hủy liên kết thiết bị -\> Gỡ thiết bị khỏi danh sách thiết bị được kết nối với tài khoản
+* Xóa thông tin user trên thiết bị vừa bị gỡ
+
+| |
+| 10 | *Thiết lập QR tĩnh - Bank* a| 
+* 1 tài khoản có thể thiết lập nhiều mã QR tĩnh - bank
+* Thiết lập thành công mã QR Tĩnh - bank -\> Hiển thị mã QR trên paybox
+* Chỉnh sửa được các thông tin:
+** Thông tin ngân hàng: Tên ngân hàng thụ hưởng, Số tài khoản thụ hưởng, Tên người thụ hưởng
+** Tên cửa hàng
+
+| |
+| 11 | *Thiết lập QR tĩnh - Ví điện tử* a| 
+* 1 tài khoản có thể thiết lập nhiều mã QR tĩnh - ví điện tử
+* Thiết lập thành công mã QR - ví điện tử -\> Hiển thị mã QR trên paybox
+* Hiển thị thông báo lỗi khi sai định dạng ảnh, thông tin tồn tại, truy vấn thất bại, trùng mã QR
+* Chỉnh sửa được các thông tin:
+** Thông tin ví điện tử: Tên ví điện tử, mã QR code
+** Tên cửa hàng
+
+| |
+| 12 | *Đổi tên Paybox* | Đổi tên thiết bị thành công | |
+5+| *Lịch sử giao dịch*
+| 13 | *Kiểm tra lịch sử giao dịch* | Hiển thị lịch sử khớp với Paybox | |
+5+| *Liên kết với tài khoản Umee*
+| 14 | *Kiểm tra liên kết với số tài khoản Umee* | Liên kết với tài khoản Umee thành công | |
+
+|===
+
+*C. Umee Myshop*
+
+|===
+| *STT* | *Function* | *Acceptance criteria* | *Kết quả* | *Ghi chú*
+
+| 1 | *Liên kết với Paybox* a| 
+* Liên kết được với Paybox (Paybox chưa liên kết trước đó)
+* Có thể liên kết với nhiều Paybox
+* Không được liên kết với Paybox đã có liên kết với shop khác
+
+| |
+| 2 | *Thanh toán Paybox* a| 
+* Hiện mã QR động trên Paybox (Chủ shop tạo và nhân viên tạo)
+* Thanh toán QR động thành công
+
+| |
+| 3 | *Hủy liên kết thiết bị* a| 
+* Hủy liên kết thành công
+* QR tĩnh của Shop bị xóa sau khi hủy
+
+| |
+
+|===
+
+*D. Extension KiotViet*
+
+|===
+| *STT* | *Function* | *Acceptance criteria* | *Kết quả* | *Ghi chú*
+
+| 1 | *Đăng nhập* | Đăng nhập thành công | |
+| 2 | *Đăng xuất* | Đăng xuất thành công | |
+| 3 | *Ghi nhớ đăng nhập* | Lưu Session cho đến khi đăng xuất | |
+| 3 | *Chọn Paybox* | Chọn được Paybox đã liên kết với Portal | |
+| 4 | *Thanh toán kiotviet* a| 
+* Lấy được giá tiền của web Kiotviet
+* Thực hiện gen mã thành công theo giá đơn hàng cho Paybox
+* Thanh toán thành công
+
+| |
+
+|===
+
+[[BIÊNBẢNNGHIỆMTHUPHẦNMỀM(KLB+)-5.Đánhgiá,nhậnxét:]]
+==== 5. Đánh giá, nhận xét:
+
+* *Hoàn thiện*
+* *Chưa hoàn thiện*
+* *Kiến nghị, đề xuất:*
+
+[[BIÊNBẢNNGHIỆMTHUPHẦNMỀM(KLB+)-6.Kếtluận:]]
+==== 6. Kết luận:
+
+[[BIÊNBẢNNGHIỆMTHUPHẦNMỀM(KLB+)-7.Kýxácnhậncủacácthànhviênthamgia:]]
+==== 7. Ký xác nhận của các thành viên tham gia:
+
+[[attachments]]
+=== Attachments:
+
+image::images/icons/bullet_blue.gif[,8,8] link:attachments/1766260832/1764786509[D-lcLqgvBBUriuHdkmHWxNnYgbsNO2JI-LvsrjmdiPU54JL_M5Fgm2AbWCBBUoumALfM2ulvvw3MHYFsidgJxxgjY78FTAK_JIjNG_bhmjaamuDR5AAOwql-VSxFYmQ9_2LKGthlQKSO7D_3pxIWcWndT6PTr8YeuhV9EW4wb6maNdeZdDXUYSLRR5nGlA] (image/png) +
+
+[[footer]]
+Document generated by Confluence on Feb 02, 2023 10:06
+[[footer-logo]]
+ http://www.atlassian.com/[Atlassian]
+

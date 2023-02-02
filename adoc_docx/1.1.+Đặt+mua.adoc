@@ -1,0 +1,214 @@
+== 1.1. Đặt mua
+
+[width="100%",cols="9%,21%,23%,47%",options="header",]
+|===
+|*LỊCH SỬ PHIÊN BẢN TÀI LIỆU* | | |
+|*STT* |*Ngày thực hiện* |*Người thực hiện* |*Lý do thay đổi - Nội dung thay đổi*
+|1 |05/12/2022 |Hoàng Huy |Khởi tạo tài liệu
+|2 |14/12/2022 |Hoàng Huy |Cập nhật tài liệu
+|3 |16/12/2022 |Hoàng Huy |Cập nhật tài liệu
+|===
+
+== Mô tả chung
+
+Là một người dùng, tôi muốn Đặt mua thiết bị mPOS, để kết nối với hệ thống của mình
+
+*RULE:*
+
+* Định danh tài khoản mới đặt mua mPOS được
+
+== Mô tả màn hình
+
+=== 1. Màn hình Đăng ký dịch vụ UniPOS
+
+image:../adoc_docx/1.1.+Đặt+mua/media/image1.png[../adoc_docx/1.1.+Đặt+mua/media/image1]
+
+[width="100%",cols="7%,26%,19%,19%,16%,13%",options="header",]
+|===
+|*No.* |*Component title* |*Component type* |*Note* |*Status default* |*Is required*
+|1 |Đăng ký dịch vụ UniPOS |Navigation bar |- |Enable |-
+|2 |Đặt mua |Button |- |Enable |-
+|3 |Trạng thái đơn hàng |Select a|
+Filter
+
+* Tất cả
+* -
+* Chờ xử lý
+* Đã duyệt
+* Đã hủy
+* Đang giao
+* Đã giao
+
+| |
+|4 |Danh sách đơn mua |Table | |Enable |
+|===
+
+==== Danh sách đơn mua
+
+[width="99%",cols="9%,8%,13%,8%,10%,18%,19%,15%",options="header",]
+|===
+|*Tên cột* |*Mã giao dịch* |*MODEL* |*Số lượng (Cái)* |*Tổng số tiền (VND)* |*Trạng thái thanh toán* |*Trạng thái đơn hàng* |*Thời gian đặt hàng*
+|*Mô tả* |Mã giao dịch được tạo khi phát sinh giao dịch a|
+Mã model dựa trên mã của sản phẩm KH mua.
+
+Mã Model dựa trên mã có sẵn trên sản phẩm.
+
+Với đơn hàng có >2 loại hàng hóa → lấy 1 loại bất kỳ + dấu … đằng sau.
+
+|Số lượng sản phẩm đã đặt |Số tiền phải thanh toán sau khi trừ giảm giá và cộng thuế a|
+* Thành công
+* Thất bại
+* Chờ thanh toán! (Là một Link dẫn đến *4. Màn hình tiến hành thanh toán* của giao dịch chưa thanh toán)
+
+*Lưu ý:* Đơn hàng ở trạng thái chờ thanh toán sẽ mất sau 30 phút
+
+a|
+* Chờ đăng ký (Chờ xử lý từ core bank và đơn vị cung cấp)
+* Đã duyệt (Đã đăng ký mPOS với core bank và đang chuẩn bị vận chuyển cho khách hàng)
+* Đang giao
+* Đã giao
+* Đã hủy
+
+_Nếu trạng thái thanh toán = thành công → Trạng thái đơn hàng = -null-._
+
+|Định dạng: hh:mm - dd/mm/yyyy
+|===
+
+c
+
+=== 2. Màn hình chưa định danh tài khoản 
+
+image:../adoc_docx/1.1.+Đặt+mua/media/image2.png[../adoc_docx/1.1.+Đặt+mua/media/image2]
+
+=== 3. Màn hình nhập thông tin đặt mua sản phẩm 
+
+image:../adoc_docx/1.1.+Đặt+mua/media/image3.png[../adoc_docx/1.1.+Đặt+mua/media/image3]
+
+[width="100%",cols="7%,25%,16%,29%,11%,12%",options="header",]
+|===
+|*No.* |*Component title* |*Component type* |*Note* |*Status default* |*Is required*
+|1 |Thông tin đơn hàng |Progress bar a|
+* Nhập thông tin Đặt mua
+
+|- |-
+|2 |Thông tin đơn hàng | | | |
+| |MODEL |Text | | |
+| |Mô tả |Text-button |Xem chi tiết mô tả | |
+| |Số lượng |Input a|
+* Nhập số lượng mong muốn
+* Button Tăng hoặc giảm theo từng đơn vị một
+
+|Enable |
+|3 |Thông tin đặt hàng |Title | | |
+| |Loại hình kinh doanh |Text a|
+→ Lấy từ thông tin định danh lên
+
+* Cá nhân
+* Doanh nghiệp
+
+| |
+| |Tên hiển thị |Text |→ Lấy từ thông tin định danh lên |Enable |
+| |Email |Text |→ Lấy từ thông tin định danh lên | |
+| |Số điện thoại |Number |→ Lấy từ thông tin định danh lên | |
+| |Địa chỉ cụ thể |Text |→ Lấy từ thông tin định danh lên | |
+|4 |Thông tin nhận hàng |Title | | |
+| |Thông tin nhận hàng giông thông tin đặt hàng |Checkbox |Tick → sync thông tin từ thông tin đặt hàng | |
+| |Họ và tên |Input |Placeholder “Tên hiển thị” |Enable |x
+| |Số điện thoại |Input |Placeholder “Số điện thoại” |Enable |x
+| |Địa chỉ |Selection | |Enable |x
+| |Lời nhắn |Input |Giới hạn 300 ký tự | |
+|6 |Tiếp tục | |Chỉ enable khi các required field đủ thông tin |Disable |
+|===
+
+=== 4. Màn hình tiến hành thanh toán
+
+image:../adoc_docx/1.1.+Đặt+mua/media/image4.png[../adoc_docx/1.1.+Đặt+mua/media/image4]
+
+=== 5. Màn hình chi tiết giao dịch
+
+image:../adoc_docx/1.1.+Đặt+mua/media/image5.png[../adoc_docx/1.1.+Đặt+mua/media/image5]
+
+[width="99%",cols="9%,15%,14%,22%,9%,9%,11%,11%",options="header",]
+|===
+|*No.* |*Component title* |*Component type* |*Note* |*Place holder* |*Status default* |*Is required* |*Validate message*
+|1 |Chi tiết giao dịch |Title | | |Read Only | |
+|2 |Thông tin giao dịch |Title | | |Read Only | |
+| |Mã giao dịch |Text |Do hệ thống cung cấp | |Read Only | |
+| |Ngày tạo |Datetime a|
+Định dạng: *dd/mm/yyyy hh:mm:ss*
+
+Thời gian tạo giao dịch
+
+| |Read Only | |
+| |Trạng thái giao dịch |Text a|
+* Đã thanh toán
+* Chưa thanh toán (Link dẫn đến trang thanh toán tiếp tục)
+
+| | | |
+|3 |Thông tin đặt hàng |Title | | |Read Only | |
+| |Loại hình kinh doanh |Text a|
+→ Lấy từ thông tin định danh lên
+
+* Cá nhân
+* Doanh nghiệp
+
+| |Read Only | |
+| |Tên hiển thị |Text |→ Lấy từ thông tin định danh lên | |Read Only | |
+| |Người đại diện pháp luật |Text |→ Lấy từ thông tin định danh lên | |Read Only | |
+| |Email |Text |→ Lấy từ thông tin định danh lên | |Read Only | |
+| |Số điện thoại |Number |→ Lấy từ thông tin định danh lên | |Read Only | |
+| |Địa chỉ cụ thể |Text |→ Lấy từ thông tin định danh lên | |Read Only | |
+|4 |Thông tin nhận hàng |Title | | |Read Only | |
+| |Họ và tên |Input |Thông tin đã nhập | |Read Only | |
+| |Email |Input |Thông tin đã nhập | |Read Only | |
+| |Số điện thoại |Input |Thông tin đã nhập | |Read Only | |
+| |Địa chỉ |Input |Thông tin đã nhập | |Read Only | |
+| |Ghi chú |Input |Thông tin đã nhập | |Read Only | |
+|5 |Thông tin đơn hàng |Title | | |Read Only | |
+| |Sản phẩm <Tên sản phẩm> |Text | | |Read Only | |
+| |Đơn giá <Số tiền> |Text | | |Read Only | |
+| |Số lượng <Số lượng> | | | |Read Only | |
+| |Tổng cộng <Số tiền> |Text |Bằng Đơn giá nhân với Số lượng | |Read Only | |
+| |Trạng thái đơn hàng |Text a|
+* Đã đặt hàng
+* Đang định danh
+* Đã duyệt
+* Đang giao
+* Đã giao
+
+| |Read Only | |
+|6 |Xuất hóa đơn |Button |Xuất hóa đơn tải về máy bằng file pdf | | | |
+|7 |Active máy |Button a|
+* Popup “ Lưu ý: Để đảm bảo những rủi ro thanh toán xảy ra. Hãy chắc chắn bạn đã nhận hàng khi Active máy, ”
+
+| | | |
+|===
+
+=== Mô tả nghiệp vụ
+
+[width="100%",cols="10%,7%,28%,18%,37%",options="header",]
+|===
+|*Bước* |*Tác nhân* |*Luồng cơ bản* |*Luồng thay thế* |*Luồng ngoại lệ*
+|1 | |Chọn card PayPOS → Tab “Đăng ký dịch vụ UniPOS” | |
+|2 | |Hiển thị MH đăng ký dịch vụ UniPOS | |
+|3 | |Chọn “Đặt mua” | |
+|4 | |Kiểm tra user đã định danh tài khoản? | |
+|5 | |Yes → Hiển thị *MH nhập thông tin đặt mua sản phẩm* | |No → Hiển thị Popup cảnh báo _“Tài khoản của bạn chưa được định danh. Vui lòng định danh tài khoản trước khi sử dụng tính năng này” →_ Thực hiện luồng định danh
+|6 | |Điền đầy đủ thông tin cần thiết. → Chọn “Tiếp theo” | |
+|7 | |Kiểm tra sản phẩm đặt mua khả dụng? | |
+|8 | |Kiểm tra user điền đầy đủ các required field? | |Đặt mua không khả dụng → hiển thị popup *“Sản phẩm hiện tại đã hết. Vui lòng chọn sản phẩm khác.”*
+|9 | |Yes → Hiển thị *MH Tiến hành thanh toán* | |
+|10 | |Chọn “Thanh toán” → *B15* | |
+|11 | | |Chọn card PayPOS → Tab “Đăng ký dịch vụ UniPOS” |
+|12 | | |Chọn giao dịch đang chờ thanh toán |
+|13 | | |Hiển thị MH Chi tiết đơn hàng |
+|14 | | |Chọn Thanh toán → *B15* |
+|15 | |Lưu trữ đơn hàng của user. | |
+|16 | |Call service Thu hộ thực hiện thanh toán | |
+|17 | |Response success. → Thực hiện thanh toán đơn hàng tại service thu hộ | |
+|18 | |Thực hiện thanh toán tại service thu hộ | |Response lỗi → Hiển thị Popup “Thanh toán hiện tại đang gặp sự cố. Vui lòng thử lại sau.”
+|19 | |Chờ nhận lệnh thanh toán thành công từ Thu hộ | |
+|20 | |Nhận API successful transaction. | |
+|21 | |Hiển thị success message _“Thanh toán giao dịch thành công”._ Hiển thị Popup *“Giao dịch đã thành công”* | |
+|22 | |Thay đổi trạng thái đơn hàng → Đã thanh toán. → *End* | |
+|===
